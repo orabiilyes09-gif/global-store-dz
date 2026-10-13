@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f28c28"><title>Global Store Dz | المتجر</title>
+<style>
+:root{--orange:#f28c28;--dark:#171717;--muted:#666;--bg:#fffaf5;--line:#eee2d6}*{box-sizing:border-box}body{margin:0;font-family:Tahoma,Arial,sans-serif;background:var(--bg);color:var(--dark)}button,input,select{font:inherit}.top{background:var(--orange);color:#fff;padding:22px 16px;text-align:center}.top h1{margin:0;font-size:27px}.top p{margin:8px 0 0}.wrap{max-width:1050px;margin:auto;padding:16px}.notice{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;margin:14px 0;line-height:1.8}.filters{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}.filters button,.btn{border:0;border-radius:10px;padding:10px 14px;cursor:pointer}.filters button{background:#fff;border:1px solid var(--line)}.filters button.active,.btn.primary{background:var(--orange);color:#fff}.products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.product{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}.photo{height:145px;background:#fff0df;display:flex;align-items:center;justify-content:center;font-size:46px}.info{padding:12px}.info h3{margin:0 0 8px;font-size:16px}.price{font-weight:bold;margin:8px 0}.tag{display:inline-block;border-radius:20px;padding:5px 8px;font-size:12px;background:#e8f7ec;color:#176b34}.tag.pre{background:#fff0d8;color:#8a4b00}.small{color:var(--muted);font-size:12px;line-height:1.6}.btn{width:100%;margin-top:10px}.cartbox{margin:22px 0;background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px}.cartrow{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid #f0e8e0;padding:10px 0}.qty{display:flex;align-items:center;gap:8px}.qty button{border:1px solid var(--line);background:#fff;border-radius:7px;padding:2px 8px}.total{font-size:20px;font-weight:bold;margin:14px 0}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.formgrid input,.formgrid select{width:100%;padding:12px;border:1px solid #ddd;border-radius:9px;background:white}.wide{grid-column:1/-1}.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}.btn.secondary{background:#222;color:#fff}.foot{text-align:center;color:#777;padding:20px;font-size:12px}@media(min-width:700px){.products{grid-template-columns:repeat(4,minmax(0,1fr))}.photo{height:180px}}@media(max-width:380px){.formgrid,.actions{grid-template-columns:1fr}.wide{grid-column:auto}}
+.netlify-form-blueprint{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+</style></head>
+<body>
+<header class="top"><h1>GLOBAL STORE DZ</h1><p>اختار واش يعجبك وخلي الباقي علينا 🛍️</p></header>
+<!-- Netlify Forms: a static form blueprint is required for deploy-time detection. -->
+<form name="store-orders" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="netlify-form-blueprint" aria-hidden="true" tabindex="-1">
+  <input type="hidden" name="form-name" value="store-orders">
+  <input name="bot-field">
+  <input name="customer">
+  <input name="surname">
+  <input name="phone">
+  <input name="province">
+  <input name="municipality">
+  <input name="address">
+  <input name="delivery">
+  <input name="items">
+  <input name="total">
+  <textarea name="order-details"></textarea>
+</form>
+
+<main class="wrap">
+<div class="notice"><b>📦 طريقة الدفع:</b><br>• المنتجات المتوفرة: الدفع عند الاستلام.<br>• منتجات سور كوموند: الدفع مسبقاً قبل تأكيد الطلب.<br><span class="small">هذا نموذج أولي. بدّل المنتجات التجريبية بمعلوماتك الحقيقية قبل نشر المتجر.</span></div>
+<div class="filters" id="filters"><button class="active" data-filter="all">كامل المنتجات</button><button data-filter="stock">متوفر في الستوك</button><button data-filter="order">سور كوموند</button></div>
+<section class="products" id="products"></section>
+<section class="cartbox" id="cart"><h2>🛒 سلة المشتريات (<span id="count">0</span>)</h2><div id="cartitems">السلة فارغة، زيد المنتجات لي حابهم.</div><div class="total">المجموع: <span id="total">0</span> دج</div>
+<h3>معلومات الطلب</h3><div class="formgrid"><input id="customer" placeholder="الاسم" autocomplete="given-name" required><input id="surname" placeholder="اللقب" autocomplete="family-name" required><input id="phone" type="tel" placeholder="رقم الهاتف" autocomplete="tel" required><input id="province" placeholder="الولاية" required><input id="municipality" placeholder="البلدية" required><input class="wide" id="address" placeholder="العنوان بالتفصيل" autocomplete="street-address" required><select class="wide" id="delivery" required><option value="">اختار طريقة التوصيل</option><option>توصيل للمنزل</option><option>استلام من نقطة توصيل</option></select></div>
+<p class="small" id="paymentnote">طريقة الدفع تتحدد حسب المنتجات الموجودة في السلة.</p><div class="actions" style="grid-template-columns:1fr"><button class="btn primary" id="send">تأكيد الطلب وإرساله للمتجر</button></div><p class="small">بعد الإرسال، تأكد من ظهور الطلب في لوحة Netlify > Forms. هذا الإرسال لا يرسل رسالة Messenger تلقائياً.</p></section>
+</main><footer class="foot">© Global Store Dz</footer>
+<script src="script.js"></script></body></html>
